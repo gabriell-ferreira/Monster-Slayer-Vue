@@ -15,30 +15,43 @@
       <div class="life-panel">
         <span class="name">Player</span>
         <div class="life-bar">
-          <div class="life"></div>
+          <div v-if='lifePlayer > 20' :style='{width: `${lifePlayer}%`}' class="life"></div>
+
+          <div v-else :style='{width: `${lifePlayer}%`}' class="life low"></div>
         </div>
-        <span class="life-percent">100%</span>
+        <span class="life-percent">{{lifePlayer}}%</span>
       </div>
 
       <div class="life-panel">
         <span class="name">Monster</span>
         <div class="life-bar">
-          <div class="life"></div>
+          <div v-if='lifeMonster> 20' :style='{width: `${lifeMonster}%`}' class="life"></div>
+
+          <div v-else :style='{width: `${lifeMonster}%`}' class="life low"></div>
         </div>
-        <span class="life-percent">100%</span>
+        <span class="life-percent">{{lifeMonster}}%</span>
       </div>
     </section>
 
     <section id="controls">
       <div class="btn-container">
-        <template v-if="teste">
-          <button class="btn new-game" @click='teste = !teste'>Start new game</button>
+        <template v-if="show">
+          <button class="btn new-game" @click='startNewGame'>Start new game</button>
         </template>
         <template v-else>
-          <button class="btn attack">Attack</button>
+          <button class="btn attack" @click='attack'>Attack</button>
           <button class="btn special-attack">Special attack</button>
           <button class="btn heal">Heal</button>
-          <button class="btn quit" @click='teste = !teste'>Quit</button>
+          <button class="btn quit" @click='quit'>Quit</button>
+        </template>
+      </div>
+    </section>
+
+    <section id="history">
+      <div class="history-container">
+        <template v-for='(message, index) in history.slice().reverse()'>
+          <p v-if='index%2 != 0' class="hit-message player" >{{message}}</p>
+          <p v-else class="hit-message monster">{{message}}</p>
         </template>
       </div>
     </section>
