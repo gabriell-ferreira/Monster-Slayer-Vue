@@ -32,6 +32,7 @@ button {
   border: none;
   text-transform: uppercase;
   font-weight: bold;
+  cursor: pointer;
 }
 
 /* ------- LIFE SECTION ---------- */
@@ -58,6 +59,10 @@ button {
   width: 100%;
   height: 20px;
   background-color: #278127;
+}
+
+.life.low{
+  background-color: #d11e1e;
 }
 
 /* ---------- PLAYER & MONSTER ----------- */
@@ -94,4 +99,36 @@ button {
 .btn.quit {
   background-color: #c5c5c5;
   color: #000
+}
+
+/* --------- HISTORY ------------- */
+.history-container {
+  padding: 0.4rem;
+  width: 100%;
+  height: 16rem;
+  overflow-y: auto;
+}
+
+.hit-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  color: #fff;
+  
+  padding: 0.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.hit-message:not(:last-child){
+  margin-bottom: 0.2rem;
+}
+
+.hit-message.player{
+  background-color: #417ee0;
+}
+.hit-message.monster{
+  background-color: #d44141;
 }
