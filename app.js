@@ -32,9 +32,9 @@ new Vue({
       this.lifePlayer = 100
       this.lifeMonster = 100
     },
-    attack(){
+    attack(bonus){
+      this.damagePlayer = bonus > 1 ? this.getRandomInt(5, 9) * bonus : this.getRandomInt(5, 9)
       this.damageMonster = this.getRandomInt(8, 12)
-      this.damagePlayer = this.getRandomInt(5, 9)
 
       this.lifeMonster -= this.damagePlayer
       this.lifePlayer -= this.damageMonster
@@ -67,6 +67,10 @@ new Vue({
         this.viewMessage = true
         this.winnerMessage = 'You lose!'
       }
+    },
+    specialAttack(){
+      let bonus = 3
+      this.attack(bonus)
     },
     getRandomInt(min, max){
       return Math.floor(Math.random() * (max - min + 1)) + min
