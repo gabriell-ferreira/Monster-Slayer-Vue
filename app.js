@@ -9,12 +9,20 @@ new Vue({
     damagePlayer: 0,
     messagePlayer: '',
     messageMonster: '',
+    viewMessage: false,
+    winnerMessage: ''
   },
   methods: {
     clearHistory(){
       this.history = []
     },
     startNewGame(){
+      this.clearHistory()
+
+      this.lifePlayer = 100
+      this.lifeMonster = 100
+
+      this.viewMessage = false
       this.show = !this.show
     },
     quit(){
@@ -51,15 +59,13 @@ new Vue({
     },
     winner(){
       if(this.lifeMonster == 0){
-        alert('player venceu')
-
-        setTimeout(this.quit, 1000)
+        this.viewMessage = true
+        this.winnerMessage = 'You win!'
       }
 
       if(this.lifePlayer == 0){
-        alert('monstro venceu')
-
-        setTimeout(this.quit, 1000)
+        this.viewMessage = true
+        this.winnerMessage = 'You lose!'
       }
     },
     getRandomInt(min, max){
