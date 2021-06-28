@@ -75,6 +75,19 @@ button {
   margin-bottom: 1rem;
 }
 
+.winMessage {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.monsterWin {
+  color: #d44141
+}
+
+.playerWin {
+  color: #30a130
+}
+
 /* ---------- CONTROLS ------------- */
 .btn-container {
   margin: 1rem 0

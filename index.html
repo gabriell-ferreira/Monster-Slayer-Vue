@@ -33,9 +33,20 @@
       </div>
     </section>
 
+    <section id='showWinner' v-show='viewMessage'>
+      <div class="winMessage">
+        <template v-if='lifePlayer == 0'>
+          <p class="monsterWin">{{winnerMessage}}</p> 
+        </template>
+        <template v-else-if='lifeMonster == 0'>
+          <p class="playerWin">{{winnerMessage}}</p> 
+        </template>
+      </div>
+    </section>
+
     <section id="controls">
       <div class="btn-container">
-        <template v-if="show">
+        <template v-if="show || viewMessage">
           <button class="btn new-game" @click='startNewGame'>Start new game</button>
         </template>
         <template v-else>
