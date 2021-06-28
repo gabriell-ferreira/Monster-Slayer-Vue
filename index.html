@@ -52,7 +52,7 @@
         <template v-else>
           <button class="btn attack" @click='attack'>Attack</button>
           <button class="btn special-attack" @click='specialAttack'>Special attack</button>
-          <button class="btn heal">Heal</button>
+          <button class="btn heal" @click='heal'>Heal</button>
           <button class="btn quit" @click='quit'>Quit</button>
         </template>
       </div>
@@ -61,7 +61,8 @@
     <section id="history">
       <div class="history-container">
         <template v-for='(message, index) in history.slice().reverse()'>
-          <p v-if='index%2 != 0' class="hit-message player" >{{message}}</p>
+          <p v-if='message.includes("player hit monster")' class="hit-message player" >{{message}}</p>
+          <p v-else-if='message.includes("heal")' class="hit-message heal" >{{message}}</p>
           <p v-else class="hit-message monster">{{message}}</p>
         </template>
       </div>

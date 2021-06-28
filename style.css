@@ -103,7 +103,7 @@ button {
 }
 .btn.special-attack {
   background-color: #dba717;
-  color: #000
+  color: #fff
 }
 .btn.heal {
   background-color: #3ac73a;
@@ -111,7 +111,7 @@ button {
 }
 .btn.quit {
   background-color: #c5c5c5;
-  color: #000
+  color: #fff
 }
 
 /* --------- HISTORY ------------- */
@@ -144,4 +144,8 @@ button {
 }
 .hit-message.monster{
   background-color: #d44141;
+}
+
+.hit-message.heal {
+  background-color: #30a130;
 }
