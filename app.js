@@ -21,8 +21,7 @@ new Vue({
     startNewGame(){
       this.clearHistory()
 
-      this.lifePlayer = 100
-      this.lifeMonster = 100
+      this.resetLife()
 
       this.viewMessage = false
       this.show = !this.show
@@ -50,9 +49,8 @@ new Vue({
 
       let healMessage = 'Player heal with ' + lifeHeal
 
-      this.monsterAttack()
       this.history.push(healMessage)
-      console.log(this.lifeMonster)
+      this.monsterAttack()
     },
     playerAttack(bonus){
       this.damagePlayer = bonus > 1 ? this.getRandomInt(5, 9) * bonus : this.getRandomInt(5, 9)
