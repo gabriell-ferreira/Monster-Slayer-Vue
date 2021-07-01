@@ -44,7 +44,7 @@ new Vue({
       this.monsterAttack()
     },
     heal(){
-      let lifeHeal = this.getRandomInt(1,12)
+      let lifeHeal = this.getRandomInt(5,12)
       this.lifePlayer = this.lifePlayer > 0 ? this.lifePlayer += lifeHeal : this.lifePlayer
 
       let healMessage = 'Player heal with ' + lifeHeal
@@ -66,7 +66,7 @@ new Vue({
       }
     },
     monsterAttack(){
-      this.damageMonster = this.getRandomInt(8, 12)
+      this.damageMonster = this.getRandomInt(5, 12)
       this.lifePlayer -= this.damageMonster
       this.messageMonster = `monster hit player whit ${this.damageMonster}`
 
